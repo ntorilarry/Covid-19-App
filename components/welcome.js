@@ -4,10 +4,12 @@ import {
   View,
   SafeAreaView,
   Image,
-  Button,
+  
 } from "react-native";
+import { Button } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-export default function Onboarding() {
+export default function Welcome({navigation}) {
   return (
     <SafeAreaView>
       <View style={styles.onboardContainer}>
@@ -23,8 +25,19 @@ export default function Onboarding() {
         <View style={styles.learnMore}>
           <Button
             title={"Learn More"}
+            type="clear"
             accessibilityLabel="Learn more about this purple button"
-            color={"#F31801"}
+            
+           
+            onPress={() => navigation.navigate("Profile")}
+            icon={
+              <Icon
+                name="arrow-right"
+                size={15}
+                color="black"
+              />
+            }
+            iconRight
           />
         </View>
       </View>
@@ -52,6 +65,9 @@ const styles = StyleSheet.create({
     width: 250,
     paddingTop: 10,
     paddingBottom: 10,
-    backgroundColor: "red",
+    border: "none",
+    colors: '#fff',
+
+    
   },
 });
